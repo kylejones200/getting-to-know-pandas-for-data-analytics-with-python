@@ -1,13 +1,44 @@
-# Getting to know Pandas for data analytics with Python
+# Getting to Know Pandas for Data Analytics with Python
 
-**Published:** 2024-04-20
-**Medium:** [https://medium.com/@kyle-t-jones/getting-to-know-pandas-for-data-analytics-with-python-7386da28dd33](https://medium.com/@kyle-t-jones/getting-to-know-pandas-for-data-analytics-with-python-7386da28dd33)
+This project demonstrates getting started with Pandas for data analytics.
 
-## About
+## Article
 
-Place the code for this article in this repository.
-The original article export is saved as `article.md`.
+Medium article: [Getting to Know Pandas for Data Analytics with Python](https://medium.com/@kylejones_47003/getting-to-know-pandas-for-data-analytics-with-python-7386da28dd33)
 
-## Files
+## Project Structure
 
-Add your `.ipynb`, `.py`, `.yaml`, `.js`, `.ts`, or other project files here.
+```
+.
+├── README.md           # This file
+├── main.py            # Main entry point
+├── config.yaml        # Configuration file
+├── requirements.txt   # Python dependencies
+├── src/               # Core functions
+│   ├── core.py        # Pandas analytics functions
+│   └── plotting.py    # Tufte-style plotting utilities
+├── tests/             # Unit tests
+├── data/              # Data files
+└── images/            # Generated plots and figures
+```
+
+## Configuration
+
+Edit `config.yaml` to customize:
+- Data source or synthetic generation
+- Operations to perform (groupby, sort, filter)
+- Output settings
+
+## Pandas Operations
+
+Common operations demonstrated:
+- **GroupBy**: Aggregate data by categories
+- **Sort**: Sort by values
+- **Filter**: Filter based on conditions
+- **Data Analysis**: Info, head, tail, missing values
+
+## Caveats
+
+- By default, generates synthetic data for demonstration.
+- Operations depend on data structure.
+- Customize operations list in config.yaml.
