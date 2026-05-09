@@ -51,9 +51,9 @@ def main():
     logging.info(f"\nNumeric columns: {analysis['numeric_columns']}")
     logging.info(f"Categorical columns: {analysis['categorical_columns']}")
     
-        df_processed = perform_data_operations(df, config['analysis']['operations'])
+    df_processed = perform_data_operations(df, config['analysis']['operations'])
     
-        logging.info(df_processed.head())
+    logging.info(df_processed.head())
     
     if config['analysis']['operations'] and len(df.select_dtypes(include=[np.number]).columns) > 0:
         col = df.select_dtypes(include=[np.number]).columns[0]

@@ -42,7 +42,7 @@ def analyze_dataframe(df: pd.DataFrame) -> Dict:
 
 def plot_dataframe_comparison(df1: pd.DataFrame, df2: pd.DataFrame,
                               column: str, title: str, output_path: Path):
- """Plot comparison between two dataframes """
+    """Plot comparison between two dataframes """
     fig, ax = plt.subplots(figsize=(10, 6))
     
     if column in df1.columns and column in df2.columns:
