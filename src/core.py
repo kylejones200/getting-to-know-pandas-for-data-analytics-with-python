@@ -43,27 +43,28 @@ def analyze_dataframe(df: pd.DataFrame) -> Dict:
 def plot_dataframe_comparison(df1: pd.DataFrame, df2: pd.DataFrame,
                               column: str, title: str, output_path: Path):
     """Plot comparison between two dataframes """
-    fig, ax = plt.subplots(figsize=(10, 6))
+                              if plot:
+        fig, ax = plt.subplots(figsize=(10, 6))
     
-    if column in df1.columns and column in df2.columns:
-        if df1[column].dtype in ['int64', 'float64']:
-            ax.hist(df1[column].dropna(), bins=30, alpha=0.6, label="Original", 
-                   color="#4A90A4", edgecolor='none')
-            ax.hist(df2[column].dropna(), bins=30, alpha=0.6, label="Processed", 
-                   color="#D4A574", edgecolor='none')
-        else:
-            counts1 = df1[column].value_counts().head(10)
-            counts2 = df2[column].value_counts().head(10)
-            x = np.arange(len(counts1))
-            ax.bar(x - 0.2, counts1.values, 0.4, label="Original", color="#4A90A4", alpha=0.7)
-            ax.bar(x + 0.2, counts2.values, 0.4, label="Processed", color="#D4A574", alpha=0.7)
-            ax.set_xticks(x)
-            ax.set_xticklabels(counts1.index, rotation=45, ha='right')
+        if column in df1.columns and column in df2.columns:
+            if df1[column].dtype in ['int64', 'float64']:
+                ax.hist(df1[column].dropna(), bins=30, alpha=0.6, label="Original", 
+                       color="#4A90A4", edgecolor='none')
+                ax.hist(df2[column].dropna(), bins=30, alpha=0.6, label="Processed", 
+                       color="#D4A574", edgecolor='none')
+            else:
+                counts1 = df1[column].value_counts().head(10)
+                counts2 = df2[column].value_counts().head(10)
+                x = np.arange(len(counts1))
+                ax.bar(x - 0.2, counts1.values, 0.4, label="Original", color="#4A90A4", alpha=0.7)
+                ax.bar(x + 0.2, counts2.values, 0.4, label="Processed", color="#D4A574", alpha=0.7)
+                ax.set_xticks(x)
+                ax.set_xticklabels(counts1.index, rotation=45, ha='right')
     
-    ax.set_xlabel(column)
-    ax.set_ylabel("Frequency")
-    ax.legend(loc='best')
+        ax.set_xlabel(column)
+        ax.set_ylabel("Frequency")
+        ax.legend(loc='best')
     
-    plt.savefig(output_path, dpi=100, bbox_inches="tight")
-    plt.close()
+        plt.savefig(output_path, dpi=100, bbox_inches="tight")
+        plt.close()
 
