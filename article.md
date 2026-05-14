@@ -8,7 +8,7 @@ canonical_link: "https://medium.com/@kyle-t-jones/getting-to-know-pandas-for-dat
 # Getting to know Pandas for data analytics with Python Pandas can be as simple or as complex as you need it to be. As an
 analysis toolkit, it's designed to be flexible and provide a wide range...
 
-### **Getting to know Pandas for data analytics with Python**
+### Getting to know Pandas for data analytics with Python
 Pandas can be as simple or as complex as you need it to be. As an analysis toolkit, it's designed to be flexible and provide a wide range of functionality so that the same tool can be used for a variety of tasks. Because of this, it can be a little overwhelming at first. In this notebook we will introduce some of the essential pandas functionality and list a few best practices that will make learning pandas easier as you go.
 
 By now, you should be comfortable with:
@@ -26,7 +26,7 @@ In this notebook you will learn:
 - Merging data (joins/vlookup)
 - Groupby, pivot_table, transform, melt
 
-Along the way, you will also learn pandas best practices in how to write your code. For further reading on mastering pandas syntax, [**Minimally sufficient Pandas**](https://medium.com/dunder-data/minimally-sufficient-pandas-a8e67f2a2428) is an excellent resource.
+Along the way, you will also learn pandas best practices in how to write your code. For further reading on mastering pandas syntax, [Minimally sufficient Pandas](https://medium.com/dunder-data/minimally-sufficient-pandas-a8e67f2a2428) is an excellent resource.
 
 ### Tutorial Overview
 ```python
@@ -40,13 +40,13 @@ pd.set_option("display.width", 160)
 
 Let's break down the code step by step:
 
-**import pandas as pd:** This line imports the pandas library and assigns it the alias pd. It allows us to use pandas functions and classes throughout the code.
+import pandas as pd: This line imports the pandas library and assigns it the alias pd. It allows us to use pandas functions and classes throughout the code.
 
-**import matplotlib.pyplot as plt:** This line imports the pyplot module from the matplotlib library and assigns it the alias plt. It allows us to create plots and visualizations.
+import matplotlib.pyplot as plt: This line imports the pyplot module from the matplotlib library and assigns it the alias plt. It allows us to create plots and visualizations.
 
-**pd.set_option("display.expand_frame_repr", False):** This line sets the option in pandas to not wrap the DataFrame when displaying it in the console. This ensures that each row of the DataFrame is displayed on a single line.
+pd.set_option("display.expand_frame_repr", False): This line sets the option in pandas to not wrap the DataFrame when displaying it in the console. This ensures that each row of the DataFrame is displayed on a single line.
 
-**pd.set_option("display.width", 160):** This line sets the option in pandas to set the maximum width of the displayed DataFrame to 160 characters. This prevents the DataFrame from being truncated and allows us to see more columns without wrapping.
+pd.set_option("display.width", 160): This line sets the option in pandas to set the maximum width of the displayed DataFrame to 160 characters. This prevents the DataFrame from being truncated and allows us to see more columns without wrapping.
 
 %matplotlib inline: This is known as a magic command in Jupyter Notebook. It enables the inline plotting backend for matplotlib, which means that plots will be displayed directly in the notebook cells.
 
@@ -67,7 +67,7 @@ print(path)
 
 Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount("/content/drive", force_remount=True).\ /content/drive/MyDrive/KyleJonesCurrent/WriteUpContent/data/us-counties-recent.csv
 
-**Step 2:** Read your file into a pandas data frame and view the top 5 rows
+Step 2: Read your file into a pandas data frame and view the top 5 rows
 
 ``` 
 # remember, pandas has built-in methods for reading data.
@@ -121,7 +121,7 @@ deaths 109.0
 Name: 3, dtype: object
 ```
 
-Or I can pull a whole range using **START:END** notation. This is known as "Slicing". For **\[1:3\]**, this means start index 1 and go up to 3 but don't include 3.
+Or I can pull a whole range using START:END notation. This is known as "Slicing". For \[1:3\], this means start index 1 and go up to 3 but don't include 3.
 
 ``` 
 print(df.loc[1:3])
@@ -219,33 +219,33 @@ df.aggregate({'fips':['sum', 'min', 'max'],
 ```
 
 #### Important Functions of Aggregation:
-**Function** **Description**
+Function Description
 
-**mean()** Compute mean of groups
+mean() Compute mean of groups
 
-**sum()** Compute sum of group values
+sum() Compute sum of group values
 
-**size()** Compute group sizes
+size() Compute group sizes
 
-**count()** Compute count of group
+count() Compute count of group
 
-**std()** Standard deviation of groups
+std() Standard deviation of groups
 
-**var()** Compute variance of groups
+var() Compute variance of groups
 
-**sem()** Standard error of the mean of groups
+sem() Standard error of the mean of groups
 
-**describe()** Generates descriptive statistics
+describe() Generates descriptive statistics
 
-**first()** Compute first of group values
+first() Compute first of group values
 
-**last()** Compute last of group values
+last() Compute last of group values
 
-**nth()** Take nth value, or a subset if n is a list
+nth() Take nth value, or a subset if n is a list
 
-**min()** Compute min of group values
+min() Compute min of group values
 
-**max()** Compute max of group values
+max() Compute max of group values
 
 ### Exercise :
 1.  [Create a new DataFrame called "new_df" using the "date" column as the index. Hint: Use the set_index() function.]
@@ -307,7 +307,7 @@ state_by_qtr = df.groupby('state')[['cases', 'deaths']].resample('Q').sum().head
 print(state_by_qtr)
 ```
 
-In this example, we read the 'us-counties-recent.csv' dataset into a DataFrame. Then, we convert the **'date'** column to a datetime type and set it as the index. Next, we use **groupby('state')** to group the data by the 'state' column and we explicitly specify the columns **\['cases', 'deaths'\]** that we want to include in the aggregation. Finally, we apply **resample('Q').sum()** to resample the data by **quarter ('Q')** and calculate the sum of **'cases'** and **'deaths'** for each quarter within each state.
+In this example, we read the 'us-counties-recent.csv' dataset into a DataFrame. Then, we convert the 'date' column to a datetime type and set it as the index. Next, we use groupby('state') to group the data by the 'state' column and we explicitly specify the columns \['cases', 'deaths'\] that we want to include in the aggregation. Finally, we apply resample('Q').sum() to resample the data by quarter ('Q') and calculate the sum of 'cases' and 'deaths' for each quarter within each state.
 
 ```python
 # use the same file from before
@@ -352,7 +352,7 @@ Just as in Excel, we can pivot our data, which typically involves swapping rows 
  print(pivot_table)
 ```
 
-The **pivot_table()** function in pandas is used to create a spreadsheet-style pivot table based on the provided data. It allows you to summarize and aggregate data in a tabular format, similar to how pivot tables work in spreadsheet programs like Excel.
+The pivot_table() function in pandas is used to create a spreadsheet-style pivot table based on the provided data. It allows you to summarize and aggregate data in a tabular format, similar to how pivot tables work in spreadsheet programs like Excel.
 
 In this example, we are creating a pivot table to calculate the average number of cases and deaths for each state. We specify the values we want to aggregate ('cases' and 'deaths'), the column to use as the index ('state'), and the aggregation function to apply ('mean').
 

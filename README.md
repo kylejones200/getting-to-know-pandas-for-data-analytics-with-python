@@ -32,10 +32,10 @@ Edit `config.yaml` to customize:
 ## Pandas Operations
 
 Common operations demonstrated:
-- **GroupBy**: Aggregate data by categories
-- **Sort**: Sort by values
-- **Filter**: Filter based on conditions
-- **Data Analysis**: Info, head, tail, missing values
+- GroupBy: Aggregate data by categories
+- Sort: Sort by values
+- Filter: Filter based on conditions
+- Data Analysis: Info, head, tail, missing values
 
 ## Caveats
 
