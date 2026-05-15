@@ -330,9 +330,8 @@ def summarize_data(df, cols, aggs):
  aggregations = {'column_name2':['min','max'],’column_name3':['sum','mean']}
  
  summarize_data(df, column_list, aggregations)
-```
 
-``` 
+
 #this is to reset the index column
 df = df.reset_index('date', inplace=True)
 ```
