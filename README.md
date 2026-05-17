@@ -42,3 +42,11 @@ Common operations demonstrated:
 - By default, generates synthetic data for demonstration.
 - Operations depend on data structure.
 - Customize operations list in config.yaml.
+
+## Disclaimer
+
+Educational/demo code only. Not financial, safety, or engineering advice. Use at your own risk. Verify results independently before any production or operational use.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
