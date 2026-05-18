@@ -18,7 +18,7 @@ logging.basicConfig(
 )
 
 
-def load_config(config_path: Path = None) -> dict:
+def load_config(config_path: Path | None = None) -> dict:
     """Load configuration from YAML file."""
     if config_path is None:
         config_path = Path(__file__).parent / "config.yaml"
@@ -39,7 +39,6 @@ def main():
         "--output-dir", type=Path, default=None, help="Output directory"
     )
     args = parser.parse_args()
-
     config = load_config(args.config)
     output_dir = (
         Path(args.output_dir)
@@ -47,7 +46,6 @@ def main():
         else Path(config["output"]["figures_dir"])
     )
     output_dir.mkdir(exist_ok=True)
-
     if args.data_path and args.data_path.exists():
         df = pd.read_csv(args.data_path)
     elif config["data"]["generate_synthetic"]:
@@ -64,17 +62,13 @@ def main():
         )
     else:
         raise ValueError("No data source specified")
-
         logging.info(df.head())
 
     analysis = analyze_dataframe(df)
     logging.info(f"\nNumeric columns: {analysis['numeric_columns']}")
     logging.info(f"Categorical columns: {analysis['categorical_columns']}")
-
     df_processed = perform_data_operations(df, config["analysis"]["operations"])
-
     logging.info(df_processed.head())
-
     if (
         config["analysis"]["operations"]
         and len(df.select_dtypes(include=[np.number]).columns) > 0
